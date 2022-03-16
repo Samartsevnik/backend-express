@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "8fa8c5b4-8117-478d-8a5a-c11daf3e160a",
+		"name": "Boilerplate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation ($email: String!, $password: String!) {\n    signup (userData: {\n        email: $email,\n        password: $password\n    }) {\n        id,\n        email,\n        password\n    }\n}",
+								"variables": "{\n    \"email\": \"test2@mail.com\",\n    \"password\": \"test12345\"\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation ($email: String!, $password: String!) {\n    login (userData: {\n        email: $email,\n        password: $password\n    }) {\n        token,\n        user { id, email }\n    }\n}",
+								"variables": "{\n    \"email\": \"test2@mail.com\",\n    \"password\": \"test12345\"\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI5YjA0YTFlLTNiMDQtNDZiZS05ZTJhLWZhM2Q1YmQwNjhhYyIsImlhdCI6MTY0NTEwODc0OCwiZXhwIjoxNjQ1MTEyMzQ4fQ.1SXAzy5M96hW3Oz5EyOgC7jqF0pExQnn0HyAgh-r3fY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\n    getUsers {\n        id,\n        email\n    }\n}",
+								"variables": "{\n    \n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test",
+			"item": [
+				{
+					"name": "Get all tests",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI5YjA0YTFlLTNiMDQtNDZiZS05ZTJhLWZhM2Q1YmQwNjhhYyIsImlhdCI6MTY0NTEwODc0OCwiZXhwIjoxNjQ1MTEyMzQ4fQ.1SXAzy5M96hW3Oz5EyOgC7jqF0pExQnn0HyAgh-r3fY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\n    getTests {\n        id,\n        name\n    }\n}",
+								"variables": "{\n    \n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
